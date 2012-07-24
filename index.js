@@ -66,7 +66,7 @@ var travisURL = exports.travisURL = 'http://travis-ci.org/';
 function travisPublicKey(slug, callback) {
     if (!slug) {
         try {
-            var pkg = JSON.parse(fs.readFileSync('../package.json')); //TODO: remove the double dot
+            var pkg = JSON.parse(fs.readFileSync('./package.json'));
             if (pkg.repository && pkg.repository.url) {
                 slug = pkg.repository.url.match(/git@github\.com:(.*)\.git$/)[1];
             } else {
