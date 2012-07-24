@@ -1,8 +1,8 @@
 var assert = require('assert'),
     figaro = require('../index');
 
-module.exports = {
-  'should find travis URL': function() {
-      assert.eql(figaro.travisURL, 'http://travis-ci.org/');
-  }
-};
+describe('figaro', function() {
+    it('should find travis URL', function() {
+        assert.equal(figaro.travisURL, 'http://travis-ci.org/');
+    });
+})
