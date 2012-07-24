@@ -31,7 +31,7 @@ exports.setup = function(filename, contents, skipGitIgnore) {
 
     if (!skipGitIgnore) {
         fs.lstat('.gitignore', function(err, stats) {
-            var gitIgnoreContents = filename + eol;
+            var gitIgnoreContents = eol + filename + eol;
             if (err) {
                 log.info('creating .gitignore and adding ' + filename + ' to it');
                 fs.writeFile('.gitignore', gitIgnoreContents);
