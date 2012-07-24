@@ -42,7 +42,8 @@ You can encrypt the contents of figaro.json for later usage as environment varia
 
 This will generate something like:
 
-    env: {secure: df/EJcOiNPNpPn9i6Nr5cpH1OOYL0FYpXdIY8zpHh7LLfwJ5q4gIwAWSXjXC2NLk13Ki+HsBgph84PX0Bd4/8FCvw6FH8lgkBkjxjG5/tgJ9j8K733CtoxuvVwSMEJsyFEHU1r9JeNx4nyriTu6JhWRnTAYVLQJjhXEncXG4Fsc=}
+    env:
+      - {secure: "df/EJcOiNPNpPn9i6Nr5cpH1OOYL0FYpXdIY8zpHh7LLfwJ5q4gIwAWSXjXC2NLk13Ki+HsBgph84PX0Bd4/8FCvw6FH8lgkBkjxjG5/tgJ9j8K733CtoxuvVwSMEJsyFEHU1r9JeNx4nyriTu6JhWRnTAYVLQJjhXEncXG4Fsc="}
 
 You can add that to your .travis.yml file safely (it is encrypted using your module public key in travis, so only travis can decrypt it)
 And now in travis you will have an environment variable called PASSWORD with value SuperSecretPassword.
