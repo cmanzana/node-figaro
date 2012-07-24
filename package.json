@@ -1,18 +1,18 @@
 {
   "name": "figaro",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "simple configuration of sensitive information on open source projects",
   "main": "index.js",
   "homepage": "https://github.com/cmanzana/node-figaro",
-  "bin":{
-    "figaro":"./bin/figaro.js"
+  "bin": {
+    "figaro": "./bin/figaro.js"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
     "npmlog": "0.0.2",
-    "request":"2.9.203",
+    "request": "2.9.203",
     "rsa": "0.0.3",
     "nopt": "1.0.x"
   },
@@ -30,7 +30,7 @@
     "CI"
   ],
   "devDependencies": {
-    "mocha":"1.3.0"
+    "mocha": "1.3.0"
   },
   "author": "Carlos Manzanares <carlos.manzanares@gmail.com>",
   "license": "MIT"
