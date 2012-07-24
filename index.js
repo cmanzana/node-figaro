@@ -127,7 +127,7 @@ exports.travisEncrypt = function(filename, slug, values) {
         } else {
             try {
                 log.info('add the following to your .travis.yml file:');
-                console.log('env: {secure: ' + encrypt(publicKey, toEncrypt.join(' ')) + '}');
+                console.log('env:\n - {secure: "' + encrypt(publicKey, toEncrypt.join(' ')) + '"}');
                 log.info('finished');
             } catch (e) {
                 log.error(e);
