@@ -18,10 +18,10 @@ The contents of this file can then be used in different environments by encrypti
 
 The options that you can use with node figaro are:
 
-*--skipGitIgnore    Skips updating .gitignore file, default: false
-*--figaro-file      File where your sensitive configuration will be stored, default: figaro.json
-*--version          Print the version of figaro.
-*--help             Print the help of figaro.
+* --skipGitIgnore    Skips updating .gitignore file, default: false
+* --figaro-file      File where your sensitive configuration will be stored, default: figaro.json
+* --version          Print the version of figaro.
+* --help             Print the help of figaro.
 
 ### Setup
 
