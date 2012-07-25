@@ -3,6 +3,18 @@ var fs = require('fs'),
     request = require('request'),
     os = require('os');
 
+// for node.js v0.6
+if (!fs.existsSync) {
+    fs.prototype.existsSync = function(path) {
+        try {
+            fs.statSync(path);
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
+}
+
 log = require('npmlog');
 log.heading = 'figaro';
 
