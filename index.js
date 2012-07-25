@@ -5,7 +5,7 @@ var fs = require('fs'),
 
 // for node.js v0.6
 if (!fs.existsSync) {
-    fs.prototype.existsSync = function(path) {
+    fs.existsSync = function(path) {
         try {
             fs.statSync(path);
             return true;
