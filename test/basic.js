@@ -2,7 +2,7 @@ var assert = require('assert'),
     fs = require('fs'),
     figaro = require('../index');
 
-log.level = 'silent';
+/*log.level = 'silent';*/
 
 var contents = '{ "test": "a" }';
 var figaroFile = './test/new_file.json';
