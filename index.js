@@ -20,34 +20,29 @@ exports.setup = function(filename, contents, skipGitIgnore) {
     filename = filename || defaultFilename;
     contents = contents || defaultContents;
 
-    fs.lstat(filename, function(err, stats) {
-       if (err) {
-           log.info('creating ' + filename);
-           fs.writeFile(filename, contents);
-       } else {
-           log.warn(filename + ' already exists, we will not overwrite');
-       }
-    });
+    if (fs.existsSync(filename)) {
+        log.warn(filename + ' already exists, we will not overwrite');
+    } else {
+        log.info('creating ' + filename);
+        fs.writeFileSync(filename, contents);
+    }
 
     if (!skipGitIgnore) {
-        fs.lstat('.gitignore', function(err, stats) {
-            var gitIgnoreContents = eol + filename + eol;
-            if (err) {
-                log.info('creating .gitignore and adding ' + filename + ' to it');
-                fs.writeFile('.gitignore', gitIgnoreContents);
+        var gitIgnoreContents = eol + filename + eol;
+
+        if (!fs.existsSync('.gitignore')) {
+            log.info('creating .gitignore and adding ' + filename + ' to it');
+            fs.writeFileSync('.gitignore', gitIgnoreContents);
+        } else {
+            if (fs.readFileSync('.gitignore', 'utf8').indexOf(gitIgnoreContents) == -1) {
+                log.info('adding ' + filename + ' to .gitignore');
+                var fd = fs.openSync('.gitignore', 'a', null);
+                fs.writeSync(fd, gitIgnoreContents, null, 'utf8');
+                fs.close(fd);
             } else {
-                if (fs.readFileSync('.gitignore', 'utf8').indexOf(gitIgnoreContents) == -1) {
-                    log.info('adding ' + filename + ' to .gitignore');
-                    fs.open('.gitignore', 'a', null, function(err, fd) {
-                        fs.write(fd, gitIgnoreContents, null, 'utf8', function() {
-                            fs.close(fd);
-                        })
-                    });
-                } else {
-                    log.info('.gitignore already ignores ' + filename);
-                }
+                log.info('.gitignore already ignores ' + filename);
             }
-        });
+        }
     }
 };
 
@@ -87,51 +82,51 @@ function travisPublicKey(slug, callback) {
                 try {
                     var publicKey = JSON.parse(body).public_key;
                 } catch (e) {
-                    callback(new Error('could not obtain travis public key for this module'));
+                    callback('could not obtain travis public key for this module:');
+                    return;
                 }
                 callback(null, publicKey);
             }
         });
     } else {
-        callback(new Error('could not obtain travis slug for this module'));
+        callback('could not obtain travis slug for this module');
     }
 }
 
 exports.travisPublicKey = travisPublicKey;
 
-exports.travisEncrypt = function(filename, slug, values) {
+exports.travisEncrypt = function(filename, slug, values, callback) {
     filename = filename || defaultFilename;
 
     try {
         var figaroContents = fs.readFileSync(filename);
     } catch (ignore) {
         if (!values) {
-            log.warn('no values to encrypt');
-            return;
+            callback(); return;
         }
     }
-
     var toEncrypt = [];
     for(var i in values) {
         toEncrypt.push(i + '=' + values[i]);
     }
 
-    var figaroValues = JSON.parse(figaroContents);
-    for(var i in figaroValues) {
-        toEncrypt.push(i + '=' + figaroValues[i]);
+    if (figaroContents) {
+        var figaroValues = JSON.parse(figaroContents);
+        for(var i in figaroValues) {
+            toEncrypt.push(i + '=' + figaroValues[i]);
+        }
     }
 
     travisPublicKey(slug, function(err, publicKey) {
         if (err) {
-            log.error(err);
+            callback(err);
         } else {
             try {
-                log.info('add the following to your .travis.yml file:');
-                console.log('env:\n - {secure: "' + encrypt(publicKey, toEncrypt.join(' ')) + '"}');
-                log.info('finished');
-            } catch (e) {
-                log.error(e);
+                var value = encrypt(publicKey, toEncrypt.join(' '));
+            } catch (err) {
+                callback(err); return;
             }
+            callback(null,value);
         }
     });
 }
