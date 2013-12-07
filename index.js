@@ -1,5 +1,5 @@
 var fs = require('fs'),
-    rsa = require('rsa'),
+    ursa = require('ursa'),
     request = require('request'),
     os = require('os');
 
@@ -62,9 +62,9 @@ function encrypt(publicKey, plaintext) {
     publicKey = publicKey.replace('-----BEGIN RSA PUBLIC KEY-----', '-----BEGIN PUBLIC KEY-----');
     publicKey = publicKey.replace('-----END RSA PUBLIC KEY-----', '-----END PUBLIC KEY-----');
 
-    var keypair = rsa.createRsaKeypair({publicKey: publicKey});
+    var key = ursa.createPublicKey(publicKey);
 
-    return keypair.encrypt(plaintext, 'utf8', 'base64');
+    return key.encrypt(plaintext, 'utf8', 'base64');
 }
 
 

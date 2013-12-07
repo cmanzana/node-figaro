@@ -13,7 +13,7 @@
   "dependencies": {
     "npmlog": "0.0.2",
     "request": "2.9.203",
-    "rsa": "0.0.3",
+    "ursa" : "0.8.x",
     "nopt": "1.0.x"
   },
   "engines": {
