@@ -16,6 +16,9 @@
     "rsa": "0.0.3",
     "nopt": "1.0.x"
   },
+  "engines": {
+      "node": "0.8.x"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:cmanzana/node-figaro.git"
