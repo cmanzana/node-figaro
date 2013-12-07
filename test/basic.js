@@ -10,7 +10,7 @@ var figaroFile = './test/new_file.json';
 describe('figaro', function() {
     describe('#travisURL', function() {
         it('should find travis URL', function() {
-            assert.equal(figaro.travisURL, 'http://travis-ci.org/');
+            assert.equal(figaro.travisURL, 'http://api.travis-ci.org');
         });
     });
 

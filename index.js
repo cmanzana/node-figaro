@@ -68,7 +68,8 @@ function encrypt(publicKey, plaintext) {
 }
 
 
-var travisURL = exports.travisURL = 'http://travis-ci.org/';
+var travisURL = exports.travisURL = 'http://api.travis-ci.org';
+var travisReposURL = travisURL + '/repos';
 
 function travisPublicKey(slug, callback) {
     if (!slug) {
@@ -85,19 +86,23 @@ function travisPublicKey(slug, callback) {
     }
 
     if (slug) {
-        var url = travisURL + slug + '.json';
+        var url = travisReposURL + '/' + slug + '/key';
         log.http('GET', url);
         request({'uri': url}, function (err, response, body) {
             if (err) {
                 callback(err);
             } else {
                 try {
-                    var publicKey = JSON.parse(body).public_key;
+                    var publicKey = JSON.parse(body).key;
                 } catch (e) {
-                    callback('could not obtain travis public key for this module:');
+                    callback('could not obtain travis public key for this module');
                     return;
                 }
-                callback(null, publicKey);
+                if (publicKey == null) {
+                    callback('could not obtain travis public key for this module');
+                } else {
+                    callback(null, publicKey);
+                }
             }
         });
     } else {
