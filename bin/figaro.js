@@ -55,7 +55,7 @@ if (options.travis) {
         } else {
             if (value) {
                 log.info('add the following to your .travis.yml file:');
-                console.log('env:\n - {secure: "' + value + '"}');
+                console.log('env:\n    - secure: "' + value + '"');
                 log.info('done');
                 process.exit(0);
                 // TODO: we should not need this process.exit(0)!!!

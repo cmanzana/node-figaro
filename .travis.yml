@@ -5,4 +5,4 @@ notifications:
   email:
     on_success: never
 env:
- - PASSWORD: "SuperSecretPassword"
+  - secure: "LF5+SPMquvxFd5Vgy+O8aa3mMcq3ASnwJ8taeq0ryahZkUkcgIKnJrXh1W0wufmo+/zhjkh5hMyVi2exF+FfC9KlJCVfC/GUORlP8ObYhR7qAomNKNh222fQRYnToOS+lnvWYgaIehYyic8EdIWlPQzSblQYvTdYV0+f+5M019A="
