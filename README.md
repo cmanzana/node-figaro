@@ -1,6 +1,7 @@
 # node figaro
 
 [![Build Status](https://secure.travis-ci.org/cmanzana/node-figaro.png)](http://travis-ci.org/cmanzana/node-figaro)
+[![NPM](https://nodei.co/npm/figaro.png?downloads=true&stars=true)](https://npmjs.org/package/figaro)
 
 npm module to help on configuration of sensitive information on open source projects.
 This project is directly inspired by [Figaro](https://github.com/laserlemon/figaro)
