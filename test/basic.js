@@ -79,7 +79,9 @@ describe('figaro', function() {
         it('should find PASSWORD environment variable', function(done) {
             log.info(process.env.TRAVIS);
             if (process.env.TRAVIS === 'true') {
-                log.info('we are inside travis and here is the password');
+                log.info('we are inside travis');
+                log.info('the value of TRAVIS_SECURE_ENV_VARS is:' + process.env.TRAVIS_SECURE_ENV_VARS);
+                log.info('and here is the password');
                 log.info(process.env.PASSWORD);
                 assert.equal(process.env.PASSWORD, 'SuperSecretPassword');
                 done();
