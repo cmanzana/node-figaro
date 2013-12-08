@@ -70,6 +70,7 @@ function encrypt(publicKey, plaintext) {
 
 var travisURL = exports.travisURL = 'http://api.travis-ci.org';
 var travisReposURL = travisURL + '/repos';
+var networkTimeout = exports.networkTimeout = 5000;
 
 function travisPublicKey(slug, callback) {
     if (!slug) {
@@ -88,7 +89,7 @@ function travisPublicKey(slug, callback) {
     if (slug) {
         var url = travisReposURL + '/' + slug + '/key';
         log.http('GET', url);
-        request({'uri': url, 'timeout': 10000}, function (err, response, body) {
+        request({'uri': url, 'timeout':networkTimeout}, function (err, response, body) {
             if (err) {
                 callback(err);
             } else {

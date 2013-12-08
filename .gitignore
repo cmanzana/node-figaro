@@ -19,3 +19,4 @@ node_modules/
 *.iml
 
 # figaro.json    we manually comment it out because it is used in test cases (in normal projects this should not be the case)
+

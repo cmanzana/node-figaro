@@ -9,7 +9,7 @@ var figaro = require('../index'),
 
 if (options.version) {
     console.log(require("../package.json").version)
-    process.exit(0)
+    process.exit(0);
 }
 
 if (options.help) {
@@ -37,7 +37,7 @@ if (options.help) {
     process.exit(0);
 }
 
-log.heading = 'publish';
+log.heading = 'figaro';
 
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
@@ -57,6 +57,8 @@ if (options.travis) {
                 log.info('add the following to your .travis.yml file:');
                 console.log('env:\n - {secure: "' + value + '"}');
                 log.info('done');
+                process.exit(0);
+                // TODO: we should not need this process.exit(0)!!!
             } else {
                 log.warn('no values to encrypt');
             }

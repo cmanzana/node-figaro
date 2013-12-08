@@ -37,7 +37,8 @@ describe('figaro', function() {
 
     describe('#travisEncrypt', function() {
         it('should encrypt explicit values', function(done) {
-            figaro.travisEncrypt(null, null, {'a': 'b'}, function(err, value) {
+            this.timeout(figaro.networkTimeout);
+            figaro.travisEncrypt(figaroFile, null, {'a': 'b'}, function(err, value) {
                 assert.ok(!err);
                 assert.ok(value);
                 done();
@@ -45,6 +46,7 @@ describe('figaro', function() {
         });
 
         it('should not encrypt because no values', function(done) {
+            this.timeout(figaro.networkTimeout);
             figaro.travisEncrypt(figaroFile, null, null, function (err, value) {
                 assert.ok(!err);
                 assert.ok(!value);
@@ -55,6 +57,7 @@ describe('figaro', function() {
 
     describe('#travisPublicKey', function() {
         it('should find public key', function(done) {
+            this.timeout(figaro.networkTimeout);
             figaro.travisPublicKey(null, function(err, publicKey) {
                 assert.ok(!err);
                 assert.ok(publicKey);
@@ -72,6 +75,7 @@ describe('figaro', function() {
     });
 
     describe('#insideTravis', function() {
+        this.timeout(figaro.networkTimeout);
         it('should find PASSWORD environment variable', function(done) {
             log.info(process.env.TRAVIS);
             if (process.env.TRAVIS === 'true') {
