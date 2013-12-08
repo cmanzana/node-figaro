@@ -88,7 +88,7 @@ function travisPublicKey(slug, callback) {
     if (slug) {
         var url = travisReposURL + '/' + slug + '/key';
         log.http('GET', url);
-        request({'uri': url}, function (err, response, body) {
+        request({'uri': url, 'timeout': 10000}, function (err, response, body) {
             if (err) {
                 callback(err);
             } else {

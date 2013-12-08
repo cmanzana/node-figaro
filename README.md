@@ -32,7 +32,7 @@ From the root of your module (where your package.json lives):
 This will generate a figaro.json file and it will be added to your .gitignore
 In the figaro.json file you can add something like:
 
-    { 'PASSWORD': 'SuperSecretPassword' }
+    { "PASSWORD": "SuperSecretPassword" }
 
 ### Travis usage
 

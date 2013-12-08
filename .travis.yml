@@ -4,3 +4,5 @@ node_js:
 notifications:
   email:
     on_success: never
+env:
+  - {secure: "a2ANlgRqHxgjkamfSxM1tec0McOWtsDiE4p/1JKco+8Lw134tCcqcsHussbrpwHhkd4lMwQ3QNZBgUPUh89BqAGptnD82jso3oy4ab1yYYtRtCgVND3mjikLb+mZAMr8H9pOEglXrJ3NIeGcTmle4cH4a7q6hUkHDxVPluQiQ9g="}

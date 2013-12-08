@@ -2,7 +2,7 @@ var assert = require('assert'),
     fs = require('fs'),
     figaro = require('../index');
 
-log.level = 'silent';
+/*log.level = 'silent';*/
 
 var contents = '{ "test": "a" }';
 var figaroFile = './test/new_file.json';
@@ -45,7 +45,7 @@ describe('figaro', function() {
         });
 
         it('should not encrypt because no values', function(done) {
-            figaro.travisEncrypt(null, null, null, function (err, value) {
+            figaro.travisEncrypt(figaroFile, null, null, function (err, value) {
                 assert.ok(!err);
                 assert.ok(!value);
                 done();
@@ -68,6 +68,20 @@ describe('figaro', function() {
                 assert.ok(!publicKey);
                 done();
             });
+        });
+    });
+
+    describe('#insideTravis', function() {
+        it('should find PASSWORD environment variable', function(done) {
+            log.info(process.env.TRAVIS);
+            if (process.env.TRAVIS === 'true') {
+                log.info('we are inside travis and here is the password');
+                log.info(process.env.PASSWORD);
+                assert.equal(process.env.PASSWORD, 'SuperSecretPassword');
+                done();
+            } else {
+                done();
+            }
         });
     });
 });
