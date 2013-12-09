@@ -68,7 +68,7 @@ function encrypt(publicKey, plaintext) {
 }
 
 
-var travisURL = exports.travisURL = 'http://api.travis-ci.org';
+var travisURL = exports.travisURL = 'https://api.travis-ci.org';
 var travisReposURL = travisURL + '/repos';
 var networkTimeout = exports.networkTimeout = 5000;
 

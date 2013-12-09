@@ -10,7 +10,7 @@ var figaroFile = './test/new_file.json';
 describe('figaro', function() {
     describe('#travisURL', function() {
         it('should find travis URL', function() {
-            assert.equal(figaro.travisURL, 'http://api.travis-ci.org');
+            assert.equal(figaro.travisURL, 'https://api.travis-ci.org');
         });
     });
 
@@ -79,7 +79,6 @@ describe('figaro', function() {
         it('should find PASSWORD environment variable', function(done) {
             log.info(process.env.TRAVIS);
             if (process.env.TRAVIS === 'true') {
-                log.info('we are inside travis');
                 log.info('the value of TRAVIS_SECURE_ENV_VARS is:' + process.env.TRAVIS_SECURE_ENV_VARS);
                 log.info('and here is the password');
                 log.info(process.env.PASSWORD);
