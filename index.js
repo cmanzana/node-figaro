@@ -62,9 +62,9 @@ function encrypt(publicKey, plaintext) {
     publicKey = publicKey.replace('-----BEGIN RSA PUBLIC KEY-----', '-----BEGIN PUBLIC KEY-----');
     publicKey = publicKey.replace('-----END RSA PUBLIC KEY-----', '-----END PUBLIC KEY-----');
 
-    var key = ursa.createPublicKey(publicKey);
+    var key = ursa.createPublicKey(publicKey, 'utf8');
 
-    return key.encrypt(plaintext, 'utf8', 'base64');
+    return key.encrypt(plaintext, 'utf8', 'base64', ursa.RSA_PKCS1_PADDING);
 }
 
 
