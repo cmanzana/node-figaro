@@ -5,4 +5,5 @@ notifications:
   email:
     on_success: never
 env:
-  - secure: "iRaRuqffUGc1TpFiDJYmmAb1ieFfMvEliLGYBQ8pO75VLMQEnRfmoCIVJSo/qmlsq7jN2/4TErmdO6qLY3FsvPdHXTgfeFcDuqb4FNNhmU+eKAL5spr6WUPIEKiyfj+v6Cf4WfAvUjWmm3Qv5i5qrYt49STQXLnMYK/hHV24mL8="
+  - secure: "Xye6Z1rUoaglOtlStweM9HAhrPwrgSOU4LU7wd8S1bT6s8yAlblEKnpPYdQd+aWfhdYCtplEBzoYnxclzHrHnU3w8L4gITnTJHnW/ZJEkF7hFGX1AYos1IJlj8evBGrS3RLFS+USOjqv0jw6XjSz1Bz2EBYvSTYQrnCYP/HEEi8="
+

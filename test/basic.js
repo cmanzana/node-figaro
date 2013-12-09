@@ -77,7 +77,6 @@ describe('figaro', function() {
     describe('#insideTravis', function() {
         this.timeout(figaro.networkTimeout);
         it('should find PASSWORD environment variable', function(done) {
-            log.info(process.env.TRAVIS);
             if (process.env.TRAVIS === 'true') {
                 log.info('the value of TRAVIS_SECURE_ENV_VARS is:' + process.env.TRAVIS_SECURE_ENV_VARS);
                 log.info('and here is the password');
