@@ -2,7 +2,7 @@ var assert = require('assert'),
     fs = require('fs'),
     figaro = require('../index');
 
-/*log.level = 'silent';*/
+log.level = 'silent';
 
 var contents = '{ "test": "a" }';
 var figaroFile = './test/new_file.json';
@@ -78,9 +78,7 @@ describe('figaro', function() {
         this.timeout(figaro.networkTimeout);
         it('should find PASSWORD environment variable', function(done) {
             if (process.env.TRAVIS === 'true') {
-                log.info('the value of TRAVIS_SECURE_ENV_VARS is:' + process.env.TRAVIS_SECURE_ENV_VARS);
-                log.info('and here is the password');
-                log.info(process.env.PASSWORD);
+                assert.equal(process.env.TRAVIS_SECURE_ENV_VARS, 'true');
                 assert.equal(process.env.PASSWORD, 'SuperSecretPassword');
                 done();
             } else {
