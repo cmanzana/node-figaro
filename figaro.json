@@ -1,3 +1,4 @@
 {
-    "PASSWORD": "SuperSecretPassword"
+    "PASSWORD1": "SuperSecretPassword",
+    "PASSWORD2": "AnotherSuperSecretPassword"
 }

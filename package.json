@@ -8,7 +8,9 @@
     "figaro": "./bin/figaro.js"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/*.js test/integration/*.js",
+    "unit-test": "mocha",
+    "integration-test": "mocha test/integration/travis-integration-test.js"
   },
   "dependencies": {
     "npmlog": "0.0.2",

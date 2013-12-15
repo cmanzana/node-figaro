@@ -49,16 +49,15 @@ if (options.setup) {
 
 if (options.travis) {
     var values = options.travis === 'true' ? null : JSON.parse(options.travis);
-    figaro.travisEncrypt(options['figaro-file'], null, values, function(err, value) {
+    figaro.travis.encrypt(options['figaro-file'], null, values, function(err, value) {
         if (err) {
             log.error(err);
         } else {
             if (value) {
                 log.info('add the following to your .travis.yml file:');
                 console.log('env:\n    - secure: "' + value + '"');
-                log.info('done');
-                process.exit(0);
                 // TODO: we should not need this process.exit(0)!!!
+                process.exit(0);
             } else {
                 log.warn('no values to encrypt');
             }
