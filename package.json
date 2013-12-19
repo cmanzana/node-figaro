@@ -13,10 +13,10 @@
     "integration-test": "mocha test/integration/travis-integration-test.js"
   },
   "dependencies": {
-    "npmlog": "0.0.2",
-    "request": "2.9.203",
+    "npmlog": "0.0.6",
+    "request": "2.30.x",
     "ursa" : "0.8.x",
-    "nopt": "1.0.x"
+    "nopt": "2.1.x"
   },
   "engines": {
       "node": "0.10.x"
