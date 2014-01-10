@@ -10,6 +10,18 @@ var gitIgnorePath = './test/.gitignore.test';
 var gitIgnoreContents = 'sometext';
 
 describe('figaro', function () {
+    describe('#readFigaroJSONFile', function() {
+        it('should read the figaro json file in this project', function() {
+            var contents = figaro.readFigaroJSONFile();
+            assert.ok(contents);
+        });
+
+        it('should not read anything as there is no figaro json file', function() {
+            var contents = figaro.readFigaroJSONFile(figaroJSONPath);
+            assert.ok(!contents);
+        });
+    });
+
     describe('#setup', function () {
         it('should setup a new figaro json file with provided contents', function () {
             figaro.setup(figaroJSONPath, figaroJSONContents, true);
@@ -33,6 +45,14 @@ describe('figaro', function () {
 
             assert.fileContentsEqual(figaroJSONPath, existingContents);
             fs.unlinkSync(figaroJSONPath);
+        });
+
+        it('should not overwrite existing figaro json file of this project', function() {
+            var existingContents = figaro.readFigaroJSONFile();
+
+            figaro.setup(null, figaroJSONContents, true);
+
+            assert.equal(figaro.readFigaroJSONFile(), existingContents);
         });
 
         it('should setup a new figaro json file with default contents and create a new git ignore file', function() {
@@ -63,6 +83,5 @@ describe('figaro', function () {
             assert.fileCreatedWithContents(gitIgnorePath, gitIgnoreContents + figaro.eol + figaroJSONPath + figaro.eol);
             fs.unlinkSync(gitIgnorePath);
         });
-
     });
 });

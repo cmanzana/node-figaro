@@ -10,11 +10,12 @@
   "scripts": {
     "test": "mocha test/*.js test/integration/*.js",
     "unit-test": "mocha",
-    "integration-test": "mocha test/integration/travis-integration-test.js"
+    "integration-test": "mocha test/integration/travis-integration-test.js",
+    "coverage": "istanbul cover node_modules/.bin/_mocha -u exports -R spec test/**"
   },
   "dependencies": {
     "npmlog": "0.0.6",
-    "request": "2.30.x",
+    "request": "2.x.x",
     "ursa" : "0.8.x",
     "nopt": "2.1.x"
   },
@@ -35,7 +36,8 @@
     "CI"
   ],
   "devDependencies": {
-    "mocha": "1.15.x"
+    "mocha": "1.x.x",
+    "istanbul": "0.2.x"
   },
   "author": "Carlos Manzanares <carlos.manzanares@gmail.com>",
   "license": "MIT"
