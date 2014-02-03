@@ -11,7 +11,7 @@
     "test": "mocha test/*.js test/integration/*.js",
     "unit-test": "mocha",
     "integration-test": "mocha test/integration/travis-integration-test.js",
-    "coverage": "istanbul cover node_modules/.bin/_mocha -u exports -R spec test/**"
+    "coverage": "istanbul cover node_modules/.bin/_mocha test/**"
   },
   "dependencies": {
     "npmlog": "0.0.6",

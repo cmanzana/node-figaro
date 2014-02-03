@@ -4,10 +4,10 @@ var assert = require('./lib/extended-assert'),
 
 log.level = 'silent';
 
-var figaroJSONPath = './test/new_file.json';
-var figaroJSONContents = '{ "test": "a" }';
-var gitIgnorePath = './test/.gitignore.test';
-var gitIgnoreContents = 'sometext';
+var figaroJSONPath = './test/new_file.json',
+    figaroJSONContents = '{ "test": "a" }',
+    gitIgnorePath = './test/.gitignore.test',
+    gitIgnoreContents = 'sometext';
 
 describe('figaro', function () {
     describe('#readFigaroJSONFile', function() {
