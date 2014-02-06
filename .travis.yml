@@ -1,8 +1,16 @@
 language: node_js
 node_js:
-  - 0.10
+- 0.10
 notifications:
   email:
     on_success: never
 env:
-  - secure: "HhvWoR88+eCkm+YXaIfGuBFMoBKxbnXFN618XqXlBwbpz+1se3YOxv0kX7265dDf7z3xPggkCrmQ+B+AinczUQ3n6rN9Q9utDD6HM5BBdcIeQ/zLQ8n9aQyCaQloThu+eE/ni2GpJ8oO+JlK2ox5Xoen1s4uTD6SxrCPPHAwgec="
+- secure: HhvWoR88+eCkm+YXaIfGuBFMoBKxbnXFN618XqXlBwbpz+1se3YOxv0kX7265dDf7z3xPggkCrmQ+B+AinczUQ3n6rN9Q9utDD6HM5BBdcIeQ/zLQ8n9aQyCaQloThu+eE/ni2GpJ8oO+JlK2ox5Xoen1s4uTD6SxrCPPHAwgec=
+deploy:
+  provider: npm
+  email: carlos.manzanares+npm@gmail.com
+  api_key:
+    secure: MJW7xF24bUAz/aAVndqeJmD2SLvjp8kpimjS/8z+Zz4IIXyk4MdBzpjeLZfvo0/fsR9JcB4YVvO0yQNvdB3b6PLnfw4oIw3O96TaRLred4rNrdiO2kwkD0y/Wb901s1OMQwOp6FGVs9bSBhooGMrp+eEnYglBKhV+pX5onw6OtA=
+  on:
+    tags: true
+    repo: cmanzana/node-figaro
