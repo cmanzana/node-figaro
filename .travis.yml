@@ -16,4 +16,4 @@ deploy:
     repo: cmanzana/node-figaro
 after_success:
 - "echo 'test\n' >> README.md"
-- "more README.md"
+- "cat README.md"
