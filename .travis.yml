@@ -20,4 +20,5 @@ after_success:
 - "git config --global user.name cmanzana"
 - "git add README.md"
 - "git commit -m 'travis commit [ci skip]'"
+- "git status"
 - "git push https://a4632b4c24b2785d0d585e315580e2c7f769908d@github.com/cmanzana/node-figaro.git"
