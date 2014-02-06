@@ -54,3 +54,4 @@ And now in travis you will have an environment variable called PASSWORD with val
 
 ## License
 [MIT](https://github.com/cmanzana/node-publish/blob/master/MIT-LICENSE)test
+test
