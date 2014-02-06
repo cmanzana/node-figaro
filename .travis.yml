@@ -19,4 +19,5 @@ after_success:
 - "git config --global user.email 'carlos.manzanares+github@gmail.com'"
 - "git config --global user.name cmanzana"
 - "git add README.md"
-- "git commit -m 'travis commit'"
+- "git commit -m 'travis commit [ci skip]'"
+- "git push"
