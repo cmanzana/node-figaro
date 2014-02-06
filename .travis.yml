@@ -16,4 +16,6 @@ deploy:
     repo: cmanzana/node-figaro
 after_success:
 - "echo 'test' >> README.md"
+- "git config --global user.email 'carlos.manzanares+github@gmail.com'"
+- "git config --global user.name cmanzana"
 - "git commit -m 'travis commit'"
