@@ -15,5 +15,5 @@ deploy:
     tags: true
     repo: cmanzana/node-figaro
 after_success:
-- "echo 'test\n' >> README.md"
-- "cat README.md"
+- "echo 'test' >> README.md"
+- "git commit -a 'travis commit'"
