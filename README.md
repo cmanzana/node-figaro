@@ -36,6 +36,12 @@ In the figaro.json file you can add something like:
 
     { "PASSWORD": "SuperSecretPassword" }
 
+
+### Populate process.env
+Simply require figaro and run parse to import all the variables in figaro.json into your nodes environment.
+
+    figaro = require('figaro').parse();
+
 ### Travis usage
 
 You can encrypt the contents of figaro.json for later usage as environment variables in [travis](http://travis-ci.org)
