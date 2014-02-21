@@ -84,4 +84,23 @@ describe('figaro', function () {
             fs.unlinkSync(gitIgnorePath);
         });
     });
+
+    describe('#parse', function () {
+        it('should not find figaro json file', function(done) {
+            figaro.parse(figaroJSONPath, function(err) {
+                assert.ok(err);
+                assert.ok(!process.env['PASSWORD1']);
+                done();
+            });
+        });
+
+        it('should add figaro entries to process.env', function(done) {
+            figaro.parse(null, function(err) {
+                assert.ok(!err);
+                assert.ok(process.env['PASSWORD1']);
+                assert.ok(process.env['PASSWORD2']);
+                done();
+            });
+        });
+    });
 });
