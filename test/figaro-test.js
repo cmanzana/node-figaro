@@ -5,6 +5,7 @@ var assert = require('./lib/extended-assert'),
 log.level = 'silent';
 
 var figaroJSONPath = './test/new_file.json',
+    figaroJSONPathDoesNotExist = './test/does_not_exist.json',
     figaroJSONContents = '{ "test": "a" }',
     gitIgnorePath = './test/.gitignore.test',
     gitIgnoreContents = 'sometext';
@@ -87,7 +88,7 @@ describe('figaro', function () {
 
     describe('#parse', function () {
         it('should not find figaro json file', function(done) {
-            figaro.parse(figaroJSONPath, function(err) {
+            figaro.parse(figaroJSONPathDoesNotExist, function(err) {
                 assert.ok(err);
                 assert.ok(!process.env['PASSWORD1']);
                 done();
