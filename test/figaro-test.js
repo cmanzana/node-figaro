@@ -5,6 +5,7 @@ var assert = require('./lib/extended-assert'),
 log.level = 'silent';
 
 var figaroJSONPath = './test/new_file.json',
+    figaroJSONPathTest = './test/figaro_test.json',
     figaroJSONPathDoesNotExist = './test/does_not_exist.json',
     figaroJSONContents = '{ "test": "a" }',
     gitIgnorePath = './test/.gitignore.test',
@@ -90,18 +91,29 @@ describe('figaro', function () {
         it('should not find figaro json file', function(done) {
             figaro.parse(figaroJSONPathDoesNotExist, function(err) {
                 assert.ok(err);
-                assert.ok(!process.env['PASSWORD1']);
+                assert.ok(!process.env['TEST1']);
+                assert.ok(!process.env['TEST2']);
                 done();
             });
         });
 
         it('should add figaro entries to process.env', function(done) {
-            figaro.parse(null, function(err) {
+            figaro.parse(figaroJSONPathTest, function(err) {
+                assert.ok(!err);
+                assert.equal(process.env['TEST1'], 'test contents 1');
+                assert.equal(process.env['TEST2'], 'test contents 2');
+                done();
+            });
+        });
+
+        it('should add figaro entries to process.env from default figaro.json', function (done) {
+            figaro.parse(null, function (err) {
                 assert.ok(!err);
                 assert.ok(process.env['PASSWORD1']);
                 assert.ok(process.env['PASSWORD2']);
                 done();
             });
         });
+
     });
 });
