@@ -40,7 +40,7 @@ In the figaro.json file you can add something like:
 ### Populate process.env
 Simply require figaro and run parse to import all the variables in figaro.json into your nodes environment.
 
-    figaro = require('figaro').parse();
+    figaro = require('figaro').parse(figaroJSONPath, callback); // figaroJSONPath can be null and in such case default location of figaro.json is used
 
 ### Travis usage
 
