@@ -1,11 +1,22 @@
 language: node_js
 node_js:
-- "0.10"
+  - "0.10"
+  - "0.12"
+  - "4.2"
+  - "5.3"
 notifications:
   email:
     on_success: never
 env:
-- secure: HhvWoR88+eCkm+YXaIfGuBFMoBKxbnXFN618XqXlBwbpz+1se3YOxv0kX7265dDf7z3xPggkCrmQ+B+AinczUQ3n6rN9Q9utDD6HM5BBdcIeQ/zLQ8n9aQyCaQloThu+eE/ni2GpJ8oO+JlK2ox5Xoen1s4uTD6SxrCPPHAwgec=
+  global:
+    - CXX=g++-4.8
+    - secure: HhvWoR88+eCkm+YXaIfGuBFMoBKxbnXFN618XqXlBwbpz+1se3YOxv0kX7265dDf7z3xPggkCrmQ+B+AinczUQ3n6rN9Q9utDD6HM5BBdcIeQ/zLQ8n9aQyCaQloThu+eE/ni2GpJ8oO+JlK2ox5Xoen1s4uTD6SxrCPPHAwgec=
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 deploy:
   provider: npm
   email: carlos.manzanares+npm@gmail.com

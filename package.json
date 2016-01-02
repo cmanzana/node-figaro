@@ -16,7 +16,7 @@
   "dependencies": {
     "npmlog": "0.0.6",
     "request": "2.x.x",
-    "ursa" : "~0.8.x",
+    "ursa" : "^0.9.x",
     "nopt": "2.2.x"
   },
   "engines": {
