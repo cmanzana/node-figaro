@@ -20,7 +20,7 @@
     "nopt": "2.2.x"
   },
   "engines": {
-      "node": "^0.10.x"
+      "node": ">=0.10.x"
   },
   "repository": {
     "type": "git",
