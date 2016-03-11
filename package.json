@@ -1,6 +1,6 @@
 {
   "name": "figaro",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "simple configuration of sensitive information on open source projects",
   "main": "index.js",
   "homepage": "https://github.com/cmanzana/node-figaro",
