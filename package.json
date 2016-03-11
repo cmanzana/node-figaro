@@ -14,10 +14,10 @@
     "coverage": "istanbul cover node_modules/.bin/_mocha test/**"
   },
   "dependencies": {
-    "npmlog": "0.0.6",
+    "npmlog": "2.x.x",
     "request": "2.x.x",
     "ursa" : "^0.9.x",
-    "nopt": "2.2.x"
+    "nopt": "3.x.x"
   },
   "engines": {
       "node": ">=0.10.x"
