@@ -38,9 +38,12 @@ In the figaro.json file you can add something like:
 
 
 ### Populate process.env
-Simply require figaro and run parse to import all the variables in figaro.json into your nodes environment.
+Simply require figaro and run parse to import all the variables in figaro.json into your node environment.
 
-    figaro = require('figaro').parse(figaroJSONPath, callback); // figaroJSONPath can be null and in such case default location of figaro.json is used
+    figaro = require('figaro').parse(figaroJSONPath, callback); 
+    // figaroJSONPath can be null and in such case default location of figaro.json is used
+    // callback is a function called in case of error with the error message as argument, e.g.: 
+    // callback = function(err) { console.log(err); };
 
 ### Travis usage
 
